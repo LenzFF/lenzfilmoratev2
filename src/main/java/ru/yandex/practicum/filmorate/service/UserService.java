@@ -25,10 +25,6 @@ public class UserService {
 
     private User getUserOrThrowException(Long userId) {
         Optional<User> user = userStorage.getById(userId);
-//        if (user.isEmpty()) {
-//            log.info("Пользователь не найден - {}", userId);
-//            throw new NotFoundException("Пользователь не найден");
-//        }
         return user.orElseThrow(() -> new NotFoundException("Пользователь не найден"));
     }
 
